@@ -48,49 +48,19 @@
             </div>
         </div>
     </nav>
-    <header>
-        <div id="carouselExampleCaptions" class="carousel slide">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="./imagenes/slide1.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./imagenes/slide2.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="./imagenes/slide3.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+    <header class="text center">
+        <h1>Lista de artículos</h1>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
         </div>
     </header>
     <main class="container">
@@ -100,10 +70,12 @@
                     <div class="card" style="width: 18rem;">
                         <img src="./imagenes/productos/Alcatel-1V-Plus.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Alcatel 1V Plus</h5>
+                            <h5 class="card-title"><span id="spancodigo1">301</span> - <span id="spannombre1">Alcatel 1V
+                                    Plus</span></h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5>$ <span id="spanprecio1">75000</span></h5>
+                            <input class="form-control" type="number" value="0" min="0" max="11" id="inputcantidad1">
                         </div>
                     </div>
                 </div>
@@ -111,10 +83,12 @@
                     <div class="card" style="width: 18rem;">
                         <img src="./imagenes/productos/Motorola-Moto-G100.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Motorola Moto G100</h5>
+                            <h5 class="card-title"><span id="spancodigo2">102</span> - <span id="spannombre2">Motorola
+                                    Moto G100</span></h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5>$ <span id="spanprecio2">80000</span></h5>
+                            <input class="form-control" type="number" value="0" min="0" max="11" id="inputcantidad2">
                         </div>
                     </div>
                 </div>
@@ -122,47 +96,78 @@
                     <div class="card" style="width: 18rem;">
                         <img src="./imagenes/productos/LG-Velvet.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">LG Velvet</h5>
+                            <h5 class="card-title"><span id="spancodigo3">185</span> - <span id="spannombre3">LG
+                                    Velvet</span></h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5>$ <span id="spanprecio3">65000</span></h5>
+                            <input class="form-control" type="number" value="0" min="0" max="11" id="inputcantidad3">
                         </div>
                     </div>
                 </div>
-
-        </section>
-        <br />
-        <section>
-            <div class="row">
                 <div class="col">
-                    <h2>Artículos de importacíon</h2>
-                    <ul>
-                        <li>Urquiza 2153</li>
-                        <li>2200 - San Lorenzo - Santa Fe</li>
-                        <li>Responsable Inscripto</li>
-                        <li>CUIT: 30-56032503-3</li>
-                        <li>I. Brutos: CM 921-750546</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="col">
-                <h2>Regístrate</h2>
-                <form action="" class="form-control">
-                    <div class="row">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Correo Electrónico</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Contraseña</label>
-                            <button type="submit" class="btn btn-primary">Registrarse</button>
+                    <div class="card" style="width: 18rem;">
+                        <img src="./imagenes/productos/Samsung-Galaxy-A21s.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><span id="spancodigo4">216</span> - <span id="spannombre4">Samsung-Galaxy-A21</span></h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <h5>$ <span id="spanprecio4">90000</span></h5>
+                            <input class="form-control" type="number" value="0" min="0" max="11" id="inputcantidad4">
                         </div>
                     </div>
+                </div>
+        </section>
 
-                </form>
-            </div>
+        <section>
+            <h2>Nota de pedidos</h2>
+           <table class="table table-striped">
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th>Código</th>
+                    <th>Detalle</th>
+                    <th>Cantidad</th>
+                    <th>Precio U.</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="detalle">
+                <tr>
+                    <td id="codigo1"></td>
+                    <td id="nombre1"></td>
+                    <td id="cantidad1"></td>
+                    <td id="precio1"></td>
+                    <td id="total1"></td>
+                </tr>
+                <tr>
+                    <td id="codigo2"></td>
+                    <td id="nombre2"></td>
+                    <td id="cantidad2"></td>
+                    <td id="precio2"></td>
+                    <td id="total2"></td>
+                </tr>
+                <tr>
+                    <td id="codigo3"></td>
+                    <td id="nombre3"></td>
+                    <td id="cantidad3"></td>
+                    <td id="precio3"></td>
+                    <td id="total3"></td>
+                </tr>
+                <tr>
+                    <td id="codigo4"></td>
+                    <td id="nombre4"></td>
+                    <td id="cantidad4"></td>
+                    <td id="precio4"></td>
+                    <td id="total4"></td>
+                </tr>
+            </tbody>
+            <tfoot >
+                <tr class="bg-success text-white">
+                    <td colspan="4" style="text-align: right;">Total del pedido</td>
+                    <td id="totalpedido"></td>
+                </tr>
+            </tfoot>
+           </table>
         </section>
     </main>
     <br />
@@ -173,6 +178,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script src="./controladores/notapedido.js"></script>
 </body>
 
 </html>
