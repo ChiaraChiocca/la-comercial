@@ -8,12 +8,11 @@ const detalle = document.getElementById("detalle");
 let cantidad;
 let precio;
 let totales = [];
-let totalPedido = 0;
 
 
 
 function calcularPedido() {
-
+    let totalPedido = 0;
     detalle.innerHTML = '';
 
     for (let i = 0; i < codigos.length; i++) {
