@@ -9,21 +9,21 @@ export const articulos = [
             camaras: "7 Mp / 12 Mp",
             pantalla: "4,7 IPS Retina"
         },
-        precio: "74000",
+        precio: "74999",
         imagen: "iPhone-SE-Black.jpg"
     },
     {
         id: 2,
-        codigo: "101",
-        nombre: "iPhone SE",
+        codigo: "102",
+        nombre: "Motorola Moto G20",
         descripcion: {
-            procesador: "A13 Bionic",
+            procesador: "Octa Core (3,2 GHz)",
             almacenamiento: "128 GB",
-            camaras: "7 Mp / 12 Mp",
-            pantalla: "4,7 IPS Retina"
+            camaras: "13 Mp / 64+16+2 Mp+ToF",
+            pantalla: "6,7 FHD+ LTPS."
         },
-        precio: "74000",
-        imagen: "iPhone-SE-Black.jpg"
+        precio: "50000",
+        imagen: "Motorola-Moto-G100.jpg"
     },
     {
         id: 3,
@@ -31,26 +31,25 @@ export const articulos = [
         nombre: "iPhone 11 Pro",
         descripcion: {
             procesador: "A13 Bionic",
-            almacenamiento: "156 GB",
+            almacenamiento: "256 GB",
             camaras: "12 Mp / 12 Mp (Triple)",
             pantalla: "5,8 Super Retina XDR"
         },
-        precio: "74000",
-        imagen: "iPhone-SE-Black.jpg"
+        precio: "232901",
+        imagen: "iPhone-11-Pro.jpg"
     },
     {
         id: 4,
-        codigo: "101",
-        nombre: "iPhone SE",
+        codigo: "201",
+        nombre: "Samsung Galaxy A72",
         descripcion: {
-            procesador: "A13 Bionic",
+            procesador: "Octa Core (2,3 GHz)",
             almacenamiento: "128 GB",
-            camaras: "7 Mp / 12 Mp",
-            pantalla: "4,7 IPS Retina"
+            camaras: "32 Mp / 64+12+5+8 Mp",
+            pantalla: "6,7 FHD+ Super Amoled"
         },
-        precio: "74000",
-        imagen: "iPhone-SE-Black.jpg"
-    },
-
+        precio: "66999",
+        imagen: "Samsung-Galaxy-A72.jpg"
+    }
 
 ]
