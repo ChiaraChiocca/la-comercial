@@ -9,6 +9,8 @@ let cantidad;
 let precio;
 let totales = [];
 
+
+
 function calcularPedido() {
     let totalPedido = 0;
     detalle.innerHTML = '';
@@ -21,7 +23,7 @@ function calcularPedido() {
             totalPedido += totales[i];
 
             detalle.innerHTML += `
-                    <tr>
+            <tr>
                         <td> ${codigos[i].innerHTML} </td>
                         <td> ${nombres[i].innerHTML} </td>
                         <td> ${cantidades[i].value} </td>
@@ -32,6 +34,7 @@ function calcularPedido() {
         }
     }
 
-    // Mostrar Resultados    
-    document.getElementById("totalpedido").innerHTML = `$ ${totalPedido} .-`;
+    // Mostrar Resultados
+
+    document.getElementById("totalpedido").innerHTML = "$ " + totalPedido + ".-";
 }

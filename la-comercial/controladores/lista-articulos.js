@@ -2,7 +2,7 @@ import { articulos } from '../modelos/articulos.js';
 
 const listado = document.querySelector("#listado");
 
-articulos.map(articulo =>
+articulos.map(articulo => 
     listado.innerHTML += `
                 <div class="col">
                     <div class="card" style="width: 18rem;">
