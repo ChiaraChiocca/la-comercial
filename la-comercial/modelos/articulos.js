@@ -3,10 +3,10 @@ const url = './api/datos.php?tabla=productos';
 /**
  * Función asíncrona para seleccionar artículos
  */
-export async function seleccionarArticulos(){
-    let res = await fetch(url+'&accion=seleccionar');
+export async function seleccionarArticulos() {
+    let res = await fetch(url + '&accion=seleccionar');
     let datos = await res.json();
-    if(res.status !== 200){
+    if (res.status !== 200) {
         throw Error('Los datos no se encontraron');
     }
     console.log(datos);
@@ -18,16 +18,46 @@ export async function seleccionarArticulos(){
  * @param datos Los datos a insertar
  */
 export function insertarArticulos(datos) {
-    fetch(`${url}&accion=insertarArticulos`, {
+    fetch(`${url}&accion=insertar`, {
         method: 'POST',
         body: datos
 
     })
-    .then(res=>res.json())
-    .then(data=> { 
-    console.log(data);
-    return data;
-    
-})
-}  
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            return data;
 
+        })
+}
+
+/**
+ * Actualiza los datos en la Basa de Datos
+ * @param datos los datos a actualizar
+ * @param id el id del articulo
+ */
+export const actualizarArticulos = (datos, id) => { // Function flecha = function actualizarArticulos(datos, id) {}
+    fetch(`${url}&accion=actualizar&id=${id}`, {
+        method: 'POST',
+        body: datos
+
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            return data;
+        });
+} 
+
+/**
+ * Eliminar los datos en la base de datos
+ * @param id el id del articulo a eliminar
+ */
+export const eliminarArticulos = (id) => { 
+    fetch(`${url}&accion=eliminar&id=${id}`,{})
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            return data;
+        })
+} 

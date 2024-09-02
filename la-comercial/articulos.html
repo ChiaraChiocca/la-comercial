@@ -63,7 +63,7 @@
         </button>
         </div>
     </header>
-    <div class="alerta"></div>
+    <div id="alerta"></div>
     <main class="container">
         <!-- Botón que inicia el Modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="btnNuevo">
@@ -106,9 +106,10 @@
     </footer>
 
     <!-- Modal -->
-    <div class="modal fade" id="formularioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="formularioModal"
+        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <form id="formulario">
+            <form id="formulario" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Articulo</h1>
@@ -118,12 +119,17 @@
                         <div class="container-fluid" id="modalContent">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <img src="./imagenes/nodisponible.png" alt="imagen no disponible" id="frmImagen" style="width: 100%;">
+                                    <img src="./imagenes/nodisponible.png" alt="imagen no disponible" id="frmImagen"
+                                        style="width: 100%;">
+                                    </div class="mb-3">
+                                        <label for="imagen" class="form-label">Seleccionar imagen</label>
+                                        <input type="file" name="imagen" id="imagen" class="form-control" />
+                                    </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="row">
                                         <div class="form-floating col-md-3">
-                                            <input type="nombre" name="codigo" id="codigo" class="form-control"
+                                            <input type="number" name="codigo" id="codigo" class="form-control"
                                                 placeholder="Código" />
                                             <label for="codigo">Código</label>
                                         </div>
@@ -133,7 +139,7 @@
                                             <label for="nombre">Nombre</label>
                                         </div>
                                         <div class="form-floating">
-                                            <textarea name="descripccion" id="descripccion" class="form-control"
+                                            <textarea name="descripcion" id="descripcion" class="form-control"
                                                 placeholder="Descripción"></textarea>
                                             <label for="nombre">Descripción</label>
                                         </div>
@@ -141,7 +147,7 @@
                                             <span class="input-group-text">$</span>
                                             <div class="form-floating">
                                                 <input type="number" name="precio" id="precio" class="form-control"
-                                                    placeholder="Precio">                                                
+                                                    placeholder="Precio">
                                                 <label for="Precio">Precio</label>
                                             </div>
                                         </div>
@@ -150,7 +156,8 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary">Guardar</button>
+                                <button submit="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar
+                                    cambios</button>
                             </div>
                         </div>
                     </div>
