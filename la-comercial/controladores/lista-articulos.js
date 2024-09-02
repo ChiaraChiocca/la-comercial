@@ -191,7 +191,7 @@ on(document, 'click', '.btn-borrar', e => {
     const cardFooter = e.target.parentNode;
     id = cardFooter.querySelector('.id-articulo').value;
     const nombre = cardFooter.parentNode.querySelector('span[name=spannombre]').innerHTML
-    let aceptar = confirm(`¿Realmente desea eliminar a $(nombre)?`);
+    let aceptar = confirm(`¿Relamente desea eliminar a ${nombre}?`);
     if(aceptar) {
         eliminarArticulos(id);
         insertarAlerta(`${nombre} borrado`, 'danger');
