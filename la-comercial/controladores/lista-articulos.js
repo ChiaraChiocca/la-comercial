@@ -25,6 +25,10 @@ let opcion = '';
 let id;
 let mensajeAlerta;
 
+// Control de usuario
+let usuario = '';
+let logueado = false;
+
 
 /**
  * Esta función se ejecuta cuando
@@ -32,8 +36,27 @@ let mensajeAlerta;
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    controlUsuario();
     mostrarArticulos();
-})
+});
+
+/**
+ * Controla si el usuario está logueado
+ */
+const controlUsuario = () => {
+    if (sessionStorage.getItem('usuario')) {
+        usuario = sessionStorage.getItem('usuario');
+        logueado = true;
+    } else {
+        logueado = false;
+    }
+
+    if (logueado) {
+        btnNuevo.style.display = 'inline';
+    } else {
+        btnNuevo.style.display = 'none';
+    }
+};
 
 
 /**
@@ -66,17 +89,17 @@ async function mostrarArticulos() {
                                 <h5>$ <span name="spanprecio">${articulo.precio}.-</span></h5>
                                 <input class="form-control" type="number" value="0" min="0" max="11" name="inputcantidad" onchange="calcularPedido()">                         
                             </div>
-                            <div class ="card-footer">
+                            <div class ="card-footer" style="display:${logueado ? 'block' : 'none'};">
                                 <a class="btn-editar btn btn-primary">Editar</a>
                                 <a class="btn-borrar btn btn-danger">Borrar</a>
                                 <input type="hidden" class="id-articulo" value="${articulo.id}">
-                                <input type="hidden" class="imagen-articulo" value="${articulo.imagen??'nodisponible.png'}">
+                                <input type="hidden" class="imagen-articulo" value="${articulo.imagen ?? 'nodisponible.png'}">
                             </div>
                         </div>
                     </div> 
         
-        `
-    ));
+        `)
+    );
 }
 
 /**
@@ -129,12 +152,12 @@ formulario.addEventListener('submit', (e) => {
 const insertarAlerta = (mensaje, tipo) => {
     const envoltorio = document.createElement('div');
     envoltorio.innerHTML = `
-    <div class="alert alert-${tipo} alert-dismissible" role="alert">
-    <div>${mensaje}<div>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Cerrar"></button>
-    </div>
-    
-    `;
+        < div class= "alert alert-${tipo} alert-dismissible" role = "alert" >
+        <div>${mensaje}<div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Cerrar"></button>
+        </div>
+
+            `;
     alerta.append(envoltorio);
 }
 
@@ -155,8 +178,8 @@ const on = (elemento, evento, selector, manejador) => {
 }
 
 /**
- * Función para el botón Editar
- */
+        * Función para el botón Editar
+        */
 on(document, 'click', '.btn-editar', e => {
     const cardFooter = e.target.parentNode; // Guardamos el elemento padre del botón
 
@@ -192,9 +215,10 @@ on(document, 'click', '.btn-borrar', e => {
     id = cardFooter.querySelector('.id-articulo').value;
     const nombre = cardFooter.parentNode.querySelector('span[name=spannombre]').innerHTML
     let aceptar = confirm(`¿Relamente desea eliminar a ${nombre}?`);
-    if(aceptar) {
+    if (aceptar) {
         eliminarArticulos(id);
         insertarAlerta(`${nombre} borrado`, 'danger');
         mostrarArticulos();
     }
 })
+

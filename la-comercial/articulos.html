@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./">La Comercial</a>
+            <a href="./">LA COMERCIAL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -29,52 +29,47 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Categorías
+                            Dropdown
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Teléfonos</a></li>
-                            <li><a class="dropdown-item" href="#">Computadoras</a></li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li>
-                                <hr class="dropdown-divider">
+                                <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
                     </li>
                 </ul>
                 <div id="nav-login">
-                </div id="div-login">
-                <form class="d-flex" id="form-login">
-                    <input class="form-control me-2" type="text" name="usuario" id="usuario" placeholder="Usuario"
-                        aria-label="Usuario">
-                    <input class="form-control me-2" type="password" name="password" id="password"
-                        placeholder="Contraseña" aria-label="Contraseña">
-
-                    <button class="btn btn-outline-success" type="submit">Login</button>
-                </form>
+                    <div id="div-login">
+                        <form class="d-flex" id="form-login">
+                            <input class="form-control me-2" type="text" name="usuario" id="usuario"
+                                placeholder="Usuario" aria-label="Usuario" />
+                            <input class="form-control me-2" type="password" name="password" id="password"
+                                placeholder="Contraseña" aria-label="Contraseña" />
+                            <button class="btn btn-outline-success" type="submit">
+                                Login
+                            </button>
+                        </form>
+                    </div>
+                    <div id="div-logout" style="display: none;">
+                        <span id="texto-logueado" class="text-white"></span>
+                        <button id="btn-logout" class="btn btn-outline-primary">
+                            Cerrar sesión
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="div-logout" style="display: none;">
-            <span id="texto logueado" class="text-white"></span>
-            <button id="btn-logout" class="btn btn-outline-primary">Cerrar Sesión</button>
-        </div>
-        </div>
-
-
     </nav>
-    <header class="text center">
+    <header class="text-center">
         <h1>Lista de artículos</h1>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-        </div>
     </header>
     <div id="alerta"></div>
     <main class="container">

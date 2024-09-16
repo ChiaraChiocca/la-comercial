@@ -1,4 +1,4 @@
-const url = './api/lohin.php'; // Constante de la url de la API
+const url = './api/login.php'; // Constante de la url de la API
 
 // Variables de objetos del DOM
 const frmLogin = document.getElementById('form-login');
@@ -9,19 +9,20 @@ const btnLogout = document.getElementById('btn-logout');
 const inputUsuario = document.getElementById('usuario');
 const inputPassword = document.getElementById('password');
 
-// Variables 
-let usuario= '';
+// Variables
+let usuario = '';
 let logueado = false;
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    verificar();
 })
 
 /**
- * Envia los datos del formulario a la API
+ * Envía los datos del formulario
+ * a la API
  */
 frmLogin.addEventListener('submit', (e) => {
-    e.preventDefault;
+    e.preventDefault();
     const datos = new FormData(frmLogin);
     login(datos);
 })
@@ -35,26 +36,27 @@ const login = (datos) => {
         body: datos
     })
     .then(res => res.json())
-    .then((data => {
+    .then(data => {
         console.log(data);
         if(data[0].usuario) {
             usuario = data[0].usuario;
             logueado = true;
             sessionStorage.setItem('usuario', usuario);
             verificar();
+        } else {
+            textoLogueado.innerHTML = data;
         }
         inputUsuario.value = '';
         inputPassword.value = '';
-
-    }));
-    window.location.reload();
+    });
+    //window.location.reload();
 }
 
 /**
- * Verificar sis un usuario está logueado
+ * Verifica si un usuario está logueado
  */
 const verificar = () => {
-    isFinite(sessionStorage.getItem('usuario')) {
+    if(sessionStorage.getItem('usuario')) {
         usuario = sessionStorage.getItem('usuario');
         textoLogueado.innerHTML = `Bienvenido: ${usuario}`;
         logueado = true;
@@ -63,29 +65,26 @@ const verificar = () => {
     if(logueado) {
         divLogin.style.display = 'none';
         divLogout.style.display = 'inline';
-    }else{
+    } else {
         divLogin.style.display = 'inline';
         divLogout.style.display = 'none';
     }
-
 }
 
 /**
  * Cierra la sesión
  */
-const logout =  () => {
-logueado = false;
-textoLogueado.innerHTML = '';
-sessionStorage.removeItem('usuario');
-verificar();
-window.location.reload();
-
+const logout = () => {
+    logueado = false;
+    textoLogueado.innerHTML = '';
+    sessionStorage.removeItem('usuario');
+    verificar();
+    window.location.reload();
 }
 
 /**
- * Ejecuta ele evento click del botón logout
+ * Ejecuta el evento click del botón logout
  */
-btnLogout.addEventListener('click', () => {
+btnLogout.addEventListener('click', () =>{
     logout();
-
 })
