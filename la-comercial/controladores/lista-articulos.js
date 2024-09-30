@@ -21,11 +21,13 @@ const inputPrecio = document.querySelector("#precio");
 const frmImagen = document.querySelector("#frmImagen");
 
 // Variables 
+let buscar = '';
 let opcion = '';
 let id;
 let mensajeAlerta;
 
 let articulos = [];
+let articulosFiltrados = [];
 let articulo = {};
 
 // Control de usuario
@@ -38,8 +40,10 @@ let logueado = false;
  * todo el contenido está cargado
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async() => {
     controlUsuario();
+    articulos = await obtenerArticulos();
+    articulosFiltrados = filtrarPorNombre('');
     mostrarArticulos();
 });
 
@@ -61,18 +65,31 @@ const controlUsuario = () => {
     }
 };
 
+/**
+ * Obtiene los artículos
+ */
+async function obtenerArticulos() {
+    articulos = await seleccionarArticulos();
+    return articulos;
+}
 
 /**
- * Obtiene los artículos y los muestra
+ * Filtra los artículos por nombre 
+ * @param n el nombre del artículo 
+ * @return artículos filtrados 
+ */
+function filtrarPorNombre(n) { 
+    articulosFiltrados = articulos.filter(items => items.nombre.includes(n));
+    return articulosFiltrados;
+}
+
+/**
+ * Muestra los artículos 
  * 
  */
-async function mostrarArticulos() {
-    articulos = await seleccionarArticulos();
-    const articulosFiltrados = articulos.filter(items => items.nombre.includes('Samsung'));
-    console.log(articulosFiltrados);
-
+function mostrarArticulos() {
     listado.innerHTML = '';
-    articulos.map((articulo) =>
+    articulosFiltrados.map((articulo) =>
     (listado.innerHTML += `
                     <div class="col">
                         <div class="card" style="width: 18rem;">
@@ -94,7 +111,7 @@ async function mostrarArticulos() {
                                 <h5>$ <span name="spanprecio">${articulo.precio}.-</span></h5>
                                 <input class="form-control" type="number" value="0" min="0" max="11" name="inputcantidad" onchange="calcularPedido()">                         
                             </div>
-                            <div class ="card-footer" style="display:${logueado ? 'block' : 'none'};">
+                            <div class ="card-footer ${logueado ? 'd-flex': 'none'};">
                                 <a class="btn-editar btn btn-primary">Editar</a>
                                 <a class="btn-borrar btn btn-danger">Borrar</a>
                                 <input type="hidden" class="id-articulo" value="${articulo.id}">
@@ -106,6 +123,32 @@ async function mostrarArticulos() {
         `)
     );
 }
+
+/**
+ * Filtro de los artículos
+ */
+const botonesFiltros = document.querySelectorAll('#filtros button');
+botonesFiltros.forEach(boton => {
+    boton.addEventListener('click', e => {
+        boton.classList.add('active');
+        boton.setAttribute('aria-current', 'page');
+
+
+        botonesFiltros.forEach(otroBoton => {
+            if(otroBoton !== boton) {
+                otroBoton.classList.remove('active');
+                otroBoton.removeAttribute('aria-current');
+            }
+        });
+
+        buscar = boton.innerHTML;
+        if(buscar == 'Todos' ) {
+            buscar = '';
+        }
+        filtrarPorNombre(buscar);
+        mostrarArticulos();
+    })
+})
 
 /**
  * Ejecuta el evento click del bóton Nuevo
@@ -157,12 +200,11 @@ formulario.addEventListener('submit', (e) => {
 const insertarAlerta = (mensaje, tipo) => {
     const envoltorio = document.createElement('div');
     envoltorio.innerHTML = `
-        < div class= "alert alert-${tipo} alert-dismissible" role = "alert" >
-        <div>${mensaje}<div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="Cerrar"></button>
+        <div class="alert alert-${tipo} alert-dismissible" role="alert">
+            <div>${mensaje}</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
         </div>
-
-            `;
+    `;
     alerta.append(envoltorio);
 }
 
